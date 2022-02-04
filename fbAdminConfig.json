@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "phyton-proyect",
+  "private_key_id": "dfbca6ae495942ca0b30834b9b0d4dfafb2e013a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDCNVQRPDP2QgpD\nM00/3vZMdpmssI56g0TmCh1qCv/wU33olo+86zat8ZfiE7F9b4eoAr79bOuYoA3R\n2M9MO/NfOgduZuZa6hdV7ugmiHtjxIcSM1HlAX4Ygib/QTwPSExABEZMKtpOIt16\nes9FCkHwO4ejc0v42XFV4sF2sHhDuxI0cLSJ7MUcAMchuNakrCGIPPiNqrtmVlJd\n2bDO1z+BXji4XAJ6izo+9cr97NUh0BwXOhTvhq8dfT6eIEB82RlB64bCDiqO3kXl\nOCrO3BoytIX6jUl3O8FkFIL6TgYsyU68pvERd3DrfLIgJGIQ4GzqexRVRZzupLoJ\nf/x9DW9BAgMBAAECggEAHojD7vHIOa+obWhjfOdRUjRTdRNNU3XQH1r3xPR1yRNX\neHozn0BcGH0jpCf0gARJD+Fepfm6EQUZJyUvcoz6dr5o7LLBBQpJIPmvBl/vBoCf\nu/zVo2vYp4HPH9Lh3oU/d9E0PEWAjUhuChPFAtXaCCtT6B74kuedKiO8xyx3vC4n\nPpEYVmlkuk/IS4BZdv/fl94JhQYQm05iGyrKAvIpNOI76zEIxbZ5mMip9fXwTDUz\nH/NE0wW5i16tateXvc4KnLNiaFlh0Rny4lOudGhl2fhm+JCD3m9iCvC6ypLftZUP\nZPOBRJpzkNx4jscUtrL4OJOb/b4PgxpyxisoDr5RAQKBgQDpXgucY/dH5c4TBEdM\nS4mdbeTbqigB+HygzfhFp5cpVZnVGub6VaHnz8+28F9Flp/y4eTm7JrSFg8pFDOa\nFY3ZQ+Pu8EAASOu136awtJCQ8rEyp+ul8Vm1J+SdN1UVKqBjuY7/+/hU0pZv28w+\nUGZUhqejaVcKWsVOiths8ck8hwKBgQDVCw6pc9Q387NvEIIc2Uzi6rOByBenG/y9\nQA6bTxjUAiQroRxJkQ3pHGjK8bq41P1Lqgsfi2eTdiHwuxeEewarDfrlCyb0vuW+\nOeCQKaC/QNn14fLSDvHvwUkyM4b/G+E92Bb+ACMUqTJZCxxs8ysEOjC+Z088r3OM\nE2BzEw7v9wKBgQDDo+IcA/pkvhVa//U90v3VizGXrjjIHidtL/95dZxWPLswWtNU\n/sEy85bxiOZ2EmaZWiNqLOVGRtQC3jq8bGF0yWOnBqbBFmD1IkA+V8HyomNHUltN\nzN4l7wHLg33Ctu+rav6lP/naMomH0T6S5xhCuHiFmGQt/Bb5V5FFFBZetQKBgGiG\nJklpNOPGw3Bobw3sZ1alxDCWlVQ93QCVHxV/9zR9YHWvdAt8CZEniRqZAv2QMj4f\nTZnKcaTdvsU3ZdBv89OU5lXd5N0Lk/iCuPTCF8X98XI7y0DYaEczU9A3i7I6YYZQ\nMOep9Yw7fyJE20tw+tf2HNguI6gohM5i611KKnf9AoGBAMF+NxGGGSdE9icA0tlp\nW5LrNajcYaPAWabVxB1nH5Dzy8UgIZyFsOVDeKC/WSSvi1tw9iD+eqnKaHz4lfLa\nzmoTMtcgHcZF/uZPdJI1hHS9oirX5Bc2NnSCd7KizRyeefSVjp53z5Hjfh6NraVK\ndhLpd8iVz5rlzVmRnhksG37W\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-91wa9@phyton-proyect.iam.gserviceaccount.com",
+  "client_id": "110995071334801129367",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-91wa9%40phyton-proyect.iam.gserviceaccount.com"
+}
