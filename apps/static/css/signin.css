@@ -9,4 +9,8 @@
   align-items: center;
   width: 100%;
   min-height: 100%;
+  
+}
+body{
+  background: linear-gradient(to right, #ffae44 80%, #2364A9);  
 }
