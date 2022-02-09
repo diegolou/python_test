@@ -1,8 +1,9 @@
 from flask import Blueprint
 
 blueprint = Blueprint (
-  'home', 
+  'authen', 
   __name__, 
   url_prefix='',
-  template_folder='templates'
+  template_folder='templates',
+  
 )

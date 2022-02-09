@@ -4,6 +4,5 @@ blueprint = Blueprint (
   'errors', 
   __name__, 
   url_prefix='',
-  template_folder='templates',
-  static_folder='static'
+  template_folder='templates'
 )

@@ -1,9 +1,8 @@
 from flask import Blueprint
 
 blueprint = Blueprint (
-  'authentication', 
+  'dashboard', 
   __name__, 
   url_prefix='',
-  template_folder='templates',
-  
+  template_folder='templates'
 )

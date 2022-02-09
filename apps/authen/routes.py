@@ -81,7 +81,7 @@ def login():
         else:
           diccionary['error'] = f'Error desconocido {vtoken["error"].message} Favor ponerse en contacto con su administrador'
       else:
-        return render_template('welcome.html')
+        return render_template(url_for('welcome.html'))
     except BaseException as err:
       diccionary['error'] = f'Unexpected {err} = {type(err)=}'
       diccionary['loginb'] = True
