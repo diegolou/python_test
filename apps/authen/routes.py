@@ -3,9 +3,10 @@ import firebase_admin   # Firebase library
 import requests         # To post requests to firebase
 import json             # To stringify the request
 
-from flask import request, render_template, url_for
+from flask import redirect, request, render_template, url_for
 from firebase_admin import credentials, auth
 from dotenv import dotenv_values
+from apps import dashboard
 
 from apps.authen import blueprint
 from apps.authen.forms import CreateAccount, LoginAccount
@@ -67,21 +68,18 @@ def login():
     try:   
       details = {"email": request.form['phemail'],"password": request.form['phpassword'],"returnSecureToken":True}
       vtoken = json.loads(requests.post (f"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={config['firebaseConfigapiKey']}",details).content)
-    
-      
-      if 'error' in vtoken.keys():
-        
-        if vtoken['error'].message == 'EMAIL_NOT_FOUND':
-          diccionary['error'] = 'La direccón de correo electrónico no se encuentra registrada. Favor'
+      if 'error' in vtoken.keys():  
+        if vtoken['error']['message'] == 'EMAIL_NOT_FOUND':
+          diccionary['error'] = 'La direccón de correo electrónico no se encuentra registrada. Favor Ingresar al modulo de '
           diccionary['loginb'] = True
-        elif 'message' == 'INVALID_PASSWORD':
+        elif vtoken['error']['message'] == 'INVALID_PASSWORD':
           diccionary['error'] = 'La contraseña es incorrecta favor ingresarla de nuevo'
-        elif 'message' == 'USER_DISABLED':
+        elif vtoken['error']['message'] == 'USER_DISABLED':
           diccionary['error'] = 'Usuario Inhabilitado. Favor ponerse en contacto con su administrador'
         else:
-          diccionary['error'] = f'Error desconocido {vtoken["error"].message} Favor ponerse en contacto con su administrador'
+          diccionary['error'] = f'Error desconocido {vtoken["error"]} Favor ponerse en contacto con su administrador'
       else:
-        return render_template(url_for('welcome.html'))
+        return redirect(url_for('dashboard.welcome'))
     except BaseException as err:
       diccionary['error'] = f'Unexpected {err} = {type(err)=}'
       diccionary['loginb'] = True

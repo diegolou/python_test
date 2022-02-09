@@ -4,7 +4,7 @@ from importlib import import_module
 
 
 def register_blueprints (app):
-  for module_name in ('authentication', 'home', 'dashboard', 'errors'):
+  for module_name in ('authen', 'home', 'dashboard', 'errors'):
     module = import_module(f'apps.{module_name}.routes')
     app.register_blueprint (module.blueprint)
 
