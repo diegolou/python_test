@@ -7,9 +7,10 @@ from flask import redirect, request, render_template, url_for
 from firebase_admin import credentials, auth
 from dotenv import dotenv_values
 from apps import dashboard
+from apps import authentication
 
-from apps.authen import blueprint
-from apps.authen.forms import CreateAccount, LoginAccount
+from apps.authentication import blueprint
+from apps.authentication.forms import CreateAccount, LoginAccount
 
 # Initialize firebase 
 cred = credentials.Certificate ('fbAdminConfig.json')
@@ -31,10 +32,10 @@ def signup():
   if form.validate_on_submit():
     try:      
       user = auth.create_user(
-        email=request.form['phemail'],
+        email=request.form['phemail'].strip(),
         email_verified=False,
-        password=request.form['phpassword'],
-        display_name=request.form['phname'],
+        password=request.form['phpassword'].strip(),
+        display_name=request.form['phname'].strip(),
         disabled=False)
       
       data = {
@@ -66,7 +67,7 @@ def login():
   form = LoginAccount(request.form)
   if form.validate_on_submit():
     try:   
-      details = {"email": request.form['phemail'],"password": request.form['phpassword'],"returnSecureToken":True}
+      details = {"email": request.form['phemail'].strip(),"password": request.form['phpassword'].strip(),"returnSecureToken":True}
       vtoken = json.loads(requests.post (f"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={config['firebaseConfigapiKey']}",details).content)
       if 'error' in vtoken.keys():  
         if vtoken['error']['message'] == 'EMAIL_NOT_FOUND':
@@ -77,9 +78,17 @@ def login():
         elif vtoken['error']['message'] == 'USER_DISABLED':
           diccionary['error'] = 'Usuario Inhabilitado. Favor ponerse en contacto con su administrador'
         else:
-          diccionary['error'] = f'Error desconocido {vtoken["error"]} Favor ponerse en contacto con su administrador'
+          diccionary['error'] = f'Error desconocido {vtoken["error"]["message"]} Favor ponerse en contacto con su administrador'
       else:
-        return redirect(url_for('dashboard.welcome'))
+        data = {"idToken": vtoken["idToken"]}
+        user_info = json.loads(requests.post (f"https://identitytoolkit.googleapis.com/v1/accounts:lookup?key={config['firebaseConfigapiKey']}",data).content)
+        if 'error' in user_info.keys():
+          diccionary['error'] = f'Error desconocido {vtoken["error"]["message"]} Favor ponerse en contacto con su administrador'
+        elif user_info['users'][0]['emailVerified'] == False:
+          link= {"link": auth.generate_email_verification_link(details['email'])}
+          return render_template('verify_new_account.html', data=link)
+        else:
+          return redirect(url_for('dashboard.welcome'))
     except BaseException as err:
       diccionary['error'] = f'Unexpected {err} = {type(err)=}'
       diccionary['loginb'] = True

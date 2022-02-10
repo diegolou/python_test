@@ -1,0 +1,128 @@
+{% extends "layout_auth.html" %}
+{% block tittle %}
+  {{data.titulo}}
+{% endblock tittle%}
+{% block stylesheets%} {%endblock stylesheets%}
+
+{%block sidebar%}
+  <h1>APHS</h1>
+{%endblock sidebar%}
+
+{%block actionTittle %}
+  <h5 class="mt-4">
+    Crea una nueva cuenta
+  </h5>
+{%endblock actionTittle%}
+        
+{%block content%}      
+  <form class="mt-2" method="POST">
+    <div class="form-group mb-3"> 
+      <div class="input-group">
+        <span class="input-group-text">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
+              <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
+            </svg>
+          </span>
+        </span>
+        {{form.phname(class="form-control")}}
+      </div>
+      <h6 class="fs-6 fw-lighter text-muted"><small>utilizar letras, números y puntos</small></h6>
+    </div>
+    <div class="form-group mb-3">
+      <div class="input-group">
+        <span class="input-group-text">
+          <span class="fas">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+              <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+            </svg>
+          </span>
+        </span>
+        {{form.phemail(class="form-control")}}
+      </div>
+      <h6 class="fs-6 fw-lighter text-muted"><small>utilizar letras, números y puntos</small></h6>
+    </div>
+
+    <div class="form-group mb-3">
+      <div class="input-group">
+        <span class="input-group-text">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+              <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+            </svg>
+          </span>
+        </span>
+        {{form.phpassword(class="form-control")}}
+        
+        <span class="input-group-text">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+              <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+            </svg>
+          </span>
+        </span>
+        {{form.phconfirm(class="form-control")}}
+      </div>
+      <h6 class="fs-6 fw-lighter text-muted"><small>Utiliza seis caracteres como mínimo con una combinación de letras, números y símbolos</small></h6>
+    </div>
+    
+    <div class="mb-3">
+      <div class="form-check" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+        {{form.phtyc(class="form-check-input")}}
+        Acepto
+        <a  href="" >{{form.phtyc.label(class="form-label")}}</a>
+        
+      </div>
+    </div>
+    {{ form.hidden_tag() }}
+    <div class="col-6 mb-3">
+      {{form.submit(class="btn btn-primary")}} 
+    </div>
+  </form>
+{%endblock content%}        
+{%block imagecontent%}
+  <h3>otra columna</h3>
+{%endblock imagecontent%}        
+{%block error%}
+
+  {% for error in form.phname.errors %}
+    {{ error }}
+  {% endfor%}
+  
+  {% for error in form.phemail.errors %}
+    {{ error }}
+  {% endfor%}
+
+  {% for error in form.phpassword.errors %}
+    {{ error }}
+  {% endfor%}
+
+  {% if data.error|length > 0 %}
+  {{data.error}}
+  {% if data.loginb %}
+  <a href="/signin">Iniciar Sesión</a>
+  {%endif%}
+  {% endif %}
+{%endblock error%}          
+
+{% block script%}{%endblock script%}
+{% block javascript%}{%endblock javascript%}
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
