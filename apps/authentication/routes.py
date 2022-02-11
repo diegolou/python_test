@@ -10,6 +10,7 @@ from apps import dashboard
 from apps import authentication
 
 from apps.authentication import blueprint
+from apps.authentication.email_send import send_email_verification
 from apps.authentication.forms import CreateAccount, LoginAccount
 
 # Initialize firebase 
@@ -34,6 +35,7 @@ def signup():
       user = auth.create_user(
         email=request.form['phemail'].strip(),
         email_verified=False,
+        phone_number=request.form['phphone'].strip(),
         password=request.form['phpassword'].strip(),
         display_name=request.form['phname'].strip(),
         disabled=False)
@@ -41,7 +43,7 @@ def signup():
       data = {
         'link' : auth.generate_email_verification_link (user.email, auth.ActionCodeSettings(url='http://localhost:4200/signin'))
       }  
-      
+      send_email_verification (request.form['phemail'].strip(),link=data['link'])
       return render_template ('verify_new_account.html', data=data)
     except auth.EmailAlreadyExistsError:
       diccionary['error'] = 'La direccón de correo electrónico ya se encuentra registrada. Favor'
@@ -49,7 +51,7 @@ def signup():
       
       
     except BaseException as err:
-      diccionary['error'] = 'f"Unexpected {err=}, {type(err)=}'
+      diccionary['error'] = f"Unexpected {err=}, {type(err)=}"
       return render_template('signup.html', data= diccionary, form=form)
       
   return render_template('signup.html', data= diccionary, form=form)

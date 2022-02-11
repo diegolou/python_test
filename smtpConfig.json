@@ -1,0 +1,12 @@
+{
+  "smtp": [
+    {
+      "provider": "outlook",
+      "host" : "smtp.office365.com",
+      "port" : "587",
+      "from": "diegolou@hotmail.com",
+      "pwd": "Dt15ld06,",
+      "seguridad" : "STARTTLS"
+    }
+  ]
+}
