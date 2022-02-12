@@ -12,6 +12,7 @@ def send_email_verification (emailTo, link):
     
   email_content = f"""
     <html>
+    <head></head>
     <body>
     <h1>Bienvenido a <img src="{{url_for('static', filename='img/Recibes-Logo150x42.jpg')}}" alt=""></h1>
     <br />
@@ -22,14 +23,19 @@ def send_email_verification (emailTo, link):
     </html>
     """
 
+
+  msg = MIMEMultipart('alternative')  
   
-  msg = email.message.Message()
+
+  msg.attach(MIMEText(email_content,'html'))
+
+  
   msg['Subject'] = 'Bienvenido a APHS. Corro de Verificación'
   msg['From'] = data['smtp'][0]['from']
   msg['To'] = emailTo
   password = data['smtp'][0]['pwd']
   msg.add_header('Content-Type', 'text/html')
-  msg.set_payload(email_content)
+  
   
   s = smtplib.SMTP(host=data['smtp'][0]['host'],port=data['smtp'][0]['port'])
   s.starttls()
