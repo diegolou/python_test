@@ -1,1 +1,40 @@
-<h1> {{ data.link }}</h1>
+{% extends "layout_auth.html" %}
+{% block tittle %}
+  {{data.titulo}}
+{% endblock tittle%}
+{% block stylesheets%} {%endblock stylesheets%}
+
+
+
+{%block actionTittle %}
+  <h5 class="mt-4">
+    Bienvenido
+  </h5>
+{%endblock actionTittle%}
+        
+{%block content%}      
+  
+    <h1> Verificacion </h1>
+  
+{%endblock content%}        
+{%block imagecontent%}
+  <figure class="figure">
+    <img src="{{url_for('static', filename='img/user.png')}}" alt="" class="figure-img img-fluid rounded" style="width: 100%">
+  </figure>
+{%endblock imagecontent%}        
+{%block error%}
+
+  
+
+  {% if data.error|length > 0 %}
+  {{data.error}}
+  {% if data.loginb %}
+  <a href="/signin">Iniciar Sesión</a>
+  {%endif%}
+  {% endif %}
+{%endblock error%}          
+
+{% block script%}{%endblock script%}
+{% block javascript%}
+  <script type="text/javascript" src="{{url_for('static', filename='js/signup.js')}}"></script>
+{%endblock javascript%}

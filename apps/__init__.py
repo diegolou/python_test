@@ -10,7 +10,7 @@ def register_blueprints (app):
 
 def create_app():
   app = Flask(__name__)
-  app.secret_key = "123456"
+  app.secret_key = "2esF6NC6Tmmyk/bNYCOda5mOfOq4GMN4VnGEqoKtwTBY6hXT5TcUSQgKtGTx1N/cflBqOVbyyVry7wlS2Yc8hw==,"
   register_blueprints (app)
   return app
 
